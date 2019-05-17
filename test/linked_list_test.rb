@@ -29,10 +29,39 @@ class LinkedListTest < Minitest::Test
     assert_nil list.append("West").next_node
   end
 
-  def test_node_has_surname_west_and_next_node_nil
+  def test_list_head_is_now_node
     list = LinkedList.new
-require 'pry'; binding.pry
-    assert_equal list.append("West").surname, "West"
+    list.append("West")
+
+    assert_instance_of Node, list.head
+  end
+
+  def test_list_updates_with_new_node
+    list = LinkedList.new
+    list.append("West")
+
+    assert_equal list.head.surname, "West"
+  end
+
+  def test_appended_list_still_has_nil_head
+    list = LinkedList.new
+    list.append("West")
+
+    assert_nil list.head.next_node
+  end
+
+  def test_count_of_list
+    list = LinkedList.new
+    list.append("West")
+
+    assert_equal list.count, 1
+  end
+
+  def test_list_can_output_family_string
+    list = LinkedList.new
+    list.append("West")
+
+    assert_equal list.to_string, "The West family"
   end
 
 
