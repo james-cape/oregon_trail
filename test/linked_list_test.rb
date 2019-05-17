@@ -64,5 +64,15 @@ class LinkedListTest < Minitest::Test
     assert_equal list.to_string, "The West family"
   end
 
+######### Iteration 3 ##########
+
+  def test_placeholder
+    list = LinkedList.new
+    list.append("Rhodes")
+    list.append("Hardy")
+    require 'pry'; binding.pry
+
+    assert_equal list.head.next_node.surname, "Hardy"
+  end
 
 end
